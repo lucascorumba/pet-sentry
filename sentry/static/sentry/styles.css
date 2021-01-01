@@ -1,0 +1,106 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.title {
+    font-size: 110px;
+}
+
+.sub-title {
+    font-size: 20px;
+}
+
+#map-container {
+    padding-top: 5px;
+    padding-bottom: 45px;
+}
+
+#map {
+    border-radius: 25px;
+    height: 75vh;
+    box-shadow: 0 0 7em 2em rgba(0, 0, 0, 0.575);
+}
+
+.box-shadow {
+    box-shadow: 0 0 7em 2em rgba(0, 0, 0, 0.575);
+}
+
+.btn-shadow {
+    box-shadow: 1px 1px 7px 2px #000;
+}
+
+.text-shadow {
+    text-shadow: 1px 2px 9px #000;
+}
+
+.btn-back-map {
+    float: left;
+}
+
+body {
+    background: rgb(42, 42, 42);
+}
+
+.bg {
+    background-image: url("resources/bg10.jpg");
+    background-color: linear-gradient(to right, #ec870af5,#b61c1cf5);
+    background-size: cover;
+}
+
+.custom-btn {
+    text-decoration: none;
+    color: white;
+}
+
+.custom-btn:hover {
+    color: coral;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hero {
+    background-image: url("resources/bg10.jpg");
+    height: 100vh;
+    background-size: cover;
+    padding-top: 8vh;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.landing-text-title {
+    font-weight: 800;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.landing-text {
+    margin: 15px;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.landing-btn {
+    margin-right: 35px;
+    padding: 15px;
+    float: right;
+}

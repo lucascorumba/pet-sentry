@@ -1,0 +1,105 @@
+{% extends "sentry/layout.html" %}
+{% load static %}
+
+{% block bg %}class="bg"{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+  <script>
+    // Variables
+      var sightings = {{sightings|safe}};
+      var missings = {{missings|safe}};
+  </script>
+  <script type="module" src="{% static 'sentry/map.js' %}" defer></script>
+{% endblock %}
+
+{% block body %}
+<div id="map-container" class="container mt-5">
+    <div id="map"></div>
+</div>
+<div id="missing" class="hidden">
+  <div class="container mt-4 mb-2">
+    <div class="col-11 col-sm-11 col-md-9 col-lg-7 mx-auto">
+      <div class="card border-dark mb-3 box-shadow">
+        <div class="card-body">
+          <h4 class="card-title text-center mb-3">Missing</h4>
+            <form id="miss-form" class="needs-validation" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <input id="miss-name" autocomplete="off" autofocus class="form-control" name="miss-name" placeholder="Pet's name" type="text" required>
+              </div>
+              <div class="form-group">
+                <input id="miss-location" autocomplete="off" class="form-control" name="miss-location" placeholder="Location" type="text" required>
+              </div>
+              <div class="form-group">
+                <input id="miss-time" autocomplete="off" class="form-control" name="miss-time" placeholder="Time" type="date" required>
+              </div>  
+              <div class="form-group">
+                <input id="miss-description" autocomplete="off" class="form-control" name="miss-description" placeholder="Description" type="text">
+                <small id="miss-description-small" class="form-text text-muted">Optional</small>
+              </div>
+              <div class="form-group">
+                <input id="miss-contact" autocomplete="off" class="form-control" name="miss-contact" placeholder="Phone or email" type="text">
+                <small id="miss-contact-small" class="form-text text-muted">Optional</small>
+              </div>
+              <div>
+                <label for="miss-image">Image: </label>
+                <input id="miss-image" type="file" name="miss-image">
+                <small id="miss-image-small" class="form-text text-muted">Optional.  Max size: 3.0Mb  Format: .jpeg /.jpg / .png / .gif / .bmp</small>
+              </div>
+              <hr>
+              <div class="text-right mt-yellow">
+                <button id="miss-back-map" class="btn btn-dark btn-back-map custom-btn" type="button">Back to Map</button>
+                <button id="miss-register-btn" class="btn btn-dark custom-btn" type="button">Register</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sighting" class="hidden">
+  <div class="container mt-5 mb-2">
+    <div class="col-11 col-sm-11 col-md-9 col-lg-7 mx-auto">
+      <div class="card border-dark mb-6 box-shadow">
+        <div class="card-body">
+          <h4 class="card-title text-center mb-3">Sighting</h4>
+            <form id="sight-form" class="needs-validation" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <input id="sight-location" autocomplete="off" autofocus class="form-control" name="sight-location" placeholder="Location" type="text" required>
+              </div>
+              <div class="form-group">
+                <input id="sight-time" autocomplete="off" class="form-control" name="sight-time" placeholder="Time" type="date" required>
+              </div>  
+              <div class="form-group">
+                <input id="sight-description" autocomplete="off" class="form-control" name="sight-description" placeholder="Description" type="text">
+                <small id="sight-description-small" class="form-text text-muted">Optional</small>
+              </div>
+              <div class="form-group">
+                <input id="sight-contact" autocomplete="off" class="form-control" name="sight-contact" placeholder="Phone or email" type="text">
+                <small id="sight-contact-small" class="form-text text-muted">Optional</small>
+              </div>
+              <div>
+                <label for="sight-image">Image: </label>
+                <input id="sight-image" type="file" name="sight-image">
+                <small id="sight-image-small" class="form-text text-muted">Optional. Max size: 3.0Mb Format: .jpeg /.jpg / .png / .gif / .bmp</small>
+              </div>
+              <hr>
+              <div class="text-right mt-yellow">
+                <button id="back-map" class="btn btn-dark btn-back-map custom-btn" type="button">Back to Map</button>
+                <button id="sight-register-btn" class="btn btn-dark custom-btn" type="button">Register</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

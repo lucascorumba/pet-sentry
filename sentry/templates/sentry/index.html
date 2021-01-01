@@ -1,0 +1,107 @@
+{% extends "sentry/layout.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="login-form" class="main-form needs-validation" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>     
+        </div>
+        <div class="modal-footer">
+            <p>Still don't have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Register here</a></p>
+            <button id="login-button" type="submit" class="btn btn-dark custom-btn">Login</button>
+        </div></form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Register</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="register-form" class="main-form needs-validation" action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="email" class="form-control" placeholder="Email" required>                                        
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirmation" class="form-control" placeholder="Confirm Password" required>
+                </div>            
+        </div>
+        <div class="modal-footer">
+            <p>Already have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Sign In</a></p>
+            <button id="register-button" type="submit" class="btn btn-dark custom-btn">Register</button>
+        </div></form>            
+        </div>
+    </div>
+</div>
+
+<!-- Content -->
+<section class="hero">
+    <div class="container">
+        <div class="card-body">
+            <h1 class="text-white text-shadow card-title title"><b>Pet Sentry</b></h1>
+            <div class="row">
+                <div class="col-md-7">
+                    <p class="text-white text-shadow sub-title">Made to help lost pets find their way back home</p>
+                    <a href="#about" class="custom-btn">
+                        <button class="btn btn-dark btn-shadow custom-btn" type="button" class="custom-btn">
+                        Learn More</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="about" class="about">
+<h1 class="text-white text-shadow landing-text-title">What it is for</h1>
+<p class="text-white text-shadow landing-text">Pet Sentry was made with the purpose of helping owners finding their missing pets. 
+    Connecting concerned owners and spotters, hopefully this traumatic moment can have a happy ending. 
+    So, if your pet has gone missing or if you spotted a wandering pet and want to increase its chance 
+    of being retrieved, Pet Sentry might come in handy.</p>
+<hr>
+<h1 class="text-white text-shadow landing-text-title">How does it work</h1>
+<p class="text-white text-shadow landing-text">It's simple! As an owner, you simply register a missing alert with your pet name, 
+    the last time it was seen, some way to contact you, a short descriptions of the animal and a picture of them. 
+    Then, a red marker will be set on the map as a missing alert. 
+    As a spotter, you can do the same and register a sighting, a blue marker will be set on the same map. 
+    With this data, spotters might increase the chance of owners know about the whereabouts of their missing pets.</p>
+{% if user.is_authenticated %}
+    <a href="{% url 'sentry' %}" class="landing-btn">
+        <button class="btn btn-dark btn-shadow custom-btn" type="button">Go to Sentry Map</button>
+    </a>
+{% else %}
+    <a href="#" class="landing-btn" data-toggle="modal" data-target="#registerModal">
+        <button class="btn btn-dark btn-shadow custom-btn" type="button">Get Started</button>
+    </a>
+{% endif %}
+<br><br><br>
+</section>
+{% endblock %}
