@@ -5,7 +5,6 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
 import datetime
 import json
 from django.core.files import File
