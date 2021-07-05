@@ -32,6 +32,14 @@ Inside the project's `BASE_DIR` folder, execute the following command, substitut
 export API_KEY="key"
 ```
 This will enable the geocoding feature of the application, and everything is ready to go.
+To make migrations for the *sentry* app, run:
+```py
+python3 manage.py makemigrations sentry
+```
+Then, to apply migrations to the database, run:
+```py
+python3 manage.py migrate
+```
 To build up the local development server execute the command:
 ```py
 python3 manage.py runserver
