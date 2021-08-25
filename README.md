@@ -1,17 +1,3 @@
-# CS50w Final Project - Project 5: Capstone
-
-## Overview
-This is the [final project](https://cs50.harvard.edu/web/2020/projects/final/capstone/) of the [CS50 Web Programming](https://cs50.harvard.edu/web/2020/) course, where a web application should be designed and implemented with Python and Javascript.
-
-### Requirements
-The final project is an opportunity to design and implement an own creation dynamic website. So long as the final project draws upon this course’s lessons, the nature of the website can be freely chosen, subject to some constraints as indicated below.
-
-* The web application must be sufficiently distinct from the other projects in this course, and more complex than those.
-	* A project that appears to be a social network is a priori deemed by the staff to be indistinct from Project 4, and should not be submitted; it will be rejected.
-	* A project that appears to be an e-commerce site is strongly suspected to be indistinct from Project 2, and your `README.md` file should be very clear as to why it’s not. Failing that, it should not be submitted; it will be rejected.
-* The web application must utilize Django (including at least one model) on the back-end and JavaScript on the front-end.
-* The web application must be mobile-responsive.
-
 # Pet Sentry
 
 ## Description and motivation
