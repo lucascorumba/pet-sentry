@@ -37,7 +37,7 @@ python3 manage.py runserver xxxx
 replacing 'xxxx' with the port number you desire.
 
 ## Technologies used
-This web application was built using **Django** for the back-end and **JavaScript** on the front-end. It also makes use of some libraries in its structure, such as **Leaflef.js** for the maps, which was supplied with **OpenStreetMap** data, **Bootstrap**, **jQuery**, and **Popper**. On top of that, to enable the geocoding feature, the **Google Geocoding API** was used.
+This web application was built using **Django** for the back-end and **JavaScript** on the front-end. It also makes use of **Leaflef.js** library for the maps, which was supplied with **OpenStreetMap** data. On top of that, to enable the geocoding feature, the **Google Geocoding API** was used.
 
 The application was constructed to be very straightforward. It's only composed of a landing page and the "sentry map" page, which contains the map itself and all the necessary forms. Unless the user chooses to go back to the landing page or refresh the map page itself, they don't need to load anything twice, since the buttons only toggle the visibility of the structures.
 
