@@ -12,6 +12,23 @@ It's simple! As an owner, you simply register a missing alert with your pet name
 
 As a spotter, you can follow the same steps and register a sighting, then a blue marker will be set on the same map. With this data, spotters might increase the chance of owners know about the whereabouts of their missing pets.
 
+## Requirements
+(Optional) It's recommended to not install required packages globally, but locally under a project subfolder using `venv`: 
+```py
+python3 -m venv venv
+
+# Windows
+venv-name\Scripts\activate.bat    # cmd
+venv-name\Scripts\activate.ps1    # Power Shell
+
+# Unix
+source venv-name/bin/activate
+```
+Then, install an [official release](https://docs.djangoproject.com/en/4.1/topics/install/#installing-official-release) of Django:
+```py
+python3 -m pip install Django
+```
+
 ## Usage
 Inside the project's `BASE_DIR` folder, execute the following command, substituting "key" for the Google API key:
 ```py
