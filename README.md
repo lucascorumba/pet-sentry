@@ -63,5 +63,3 @@ The communication between the client and the server is made mostly with ***AJAX*
 To make possible that ***JSON*** files carry images, the uploaded file size had to be limited at 3Mb, and allowed formats restrained to `.jpeg` (or `.jpg`), `.png`, `.gif` and `.bmp`. This is due to both the limit size of JSON files and the JavaScript conversion method `FileReader.readAsDataURL()` of binary data to **base64**.
 
 A full demonstration of this web application functionalities can be seen in this [video](https://youtu.be/4NOiRHDxFa8).
-
-##### ## Lucas Oliveira Corumbá ## CS50w Final Project ## ##
